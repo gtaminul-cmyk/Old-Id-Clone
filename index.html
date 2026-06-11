@@ -3,212 +3,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacked By Team BD Cyber Ninja</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Rajdhani:wght@600&family=Creepster&display=swap" rel="stylesheet">
+    <title></title>
     <style>
-        body, html { margin: 0; padding: 0; overflow: hidden; background: #000; }
-
-        #bdcf-hacked-wrapper {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #050515; /* Deep Cyberpunk Space Background */
+            cursor: pointer;
+        }
+        #nexus-canvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: #000 url('https://i.ibb.co.com/jvRMPwz2/1772077919068.png') no-repeat center center fixed;
-            background-size: cover;
-            color: #fff;
-            font-family: 'Rajdhani', sans-serif;
-            z-index: 999999;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            overflow-y: auto;
-            padding: 20px 0;
+            display: block;
         }
-
-        .bdcf-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 8, 0, 0.92); /* Dark Greenish Tint */
-            z-index: 1;
-        }
-
-        .bdcf-content {
-            position: relative;
-            z-index: 2;
-            width: 90%;
-            max-width: 600px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-bottom: 50px;
-        }
-
-        .bdcf-kalema {
-            width: 80%;
-            max-width: 250px;
-            filter: drop-shadow(0 0 15px #00ff00);
-            animation: bdcfGlow 3s infinite alternate;
-            margin-bottom: 10px;
-        }
-
-        @keyframes bdcfGlow {
-            from { filter: drop-shadow(0 0 5px #fff); }
-            to { filter: drop-shadow(0 0 20px #00ff00); }
-        }
-
-        .bdcf-logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 2px solid #00ff00; /* Neon Green Border */
-            box-shadow: 0 0 20px #00ff00;
-            margin: 10px 0;
-            animation: bdcfSpin 15s linear infinite;
-        }
-
-        @keyframes bdcfSpin {
-            from { transform: rotateY(0deg); }
-            to { transform: rotateY(360deg); }
-        }
-
-        .bdcf-h1 {
-            font-family: 'Creepster', cursive;
-            font-size: 2.2rem;
-            color: #00ff00; /* Neon Green Text */
-            text-shadow: 0 0 15px #00ff00;
-            margin: 5px 0;
-        }
-
-        .bdcf-team {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 900;
-            color: #fff;
-            text-shadow: 0 0 10px #00ff00;
-            text-transform: uppercase;
-        }
-
-        .bdcf-box {
-            background: rgba(0, 20, 0, 0.85); /* Dark Green Overlay */
-            border: 1px solid #00ff00;
-            border-radius: 10px;
-            padding: 25px;
-            width: 100%;
-            text-align: left;
-            margin-top: 15px;
-            box-shadow: 0 0 30px rgba(0, 255, 0, 0.15);
-        }
-
-        .bdcf-box p {
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-            color: #d0f0d0;
-            border-left: 3px solid #00ff00;
-            padding-left: 12px;
-            line-height: 1.6;
-        }
-
-        .bdcf-hl { color: #00ff00; font-weight: bold; }
-
-        .bdcf-crdz {
-            border-top: 1px solid #00ff0044;
-            padding-top: 15px;
-            margin-top: 10px;
-            font-size: 0.85rem;
-            color: #00ff00;
-            word-wrap: break-word;
-        }
-
-        .bdcf-player {
-            background: rgba(0, 255, 0, 0.05);
-            border: 1px solid #00ff00;
-            padding: 10px 20px;
-            border-radius: 50px;
-            margin-top: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            backdrop-filter: blur(5px);
-        }
-
-        #bdcf-btn {
-            background: #00ff00;
-            border: none;
-            color: #000; /* Black text on green button */
-            padding: 8px 18px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: bold;
-            font-size: 0.7rem;
-            transition: 0.3s;
-        }
-
-        #bdcf-vol {
-            cursor: pointer;
-            accent-color: #00ff00;
-            width: 80px;
+        .watermark {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: rgba(0, 242, 254, 0.4); /* Neon Cyan Watermark */
+            font-family: 'JetBrains Mono', monospace, sans-serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+            pointer-events: none;
+            user-select: none;
+            text-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
 
-<div id="bdcf-hacked-wrapper">
-    <div class="bdcf-overlay"></div>
+    <canvas id="nexus-canvas"></canvas>
+    <div class="watermark">DARKNET • NEXUS GRAPH</div>
 
-    <div class="bdcf-content">
-        <img src="https://i.ibb.co.com/WNmvY0xs/IMG-20260126-084454-removebg-preview.png" alt="Kalema" class="bdcf-kalema">
-        <img src="https://i.ibb.co.com/GfS67qkv/p-3289fhq2x1.png" alt="Logo" class="bdcf-logo">
+    <script>
+        (function() {
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x050515);
 
-        <h2 class="bdcf-h1">HACKED BY</h2>
-        <h1 class="bdcf-team">☢️ TEAM BD CYBER NINJA ☢️</h1>
+            const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.set(0, 1, 22);
 
-        <div class="bdcf-box">
-            <p><span class="bdcf-hl">MESSAGE:</span> We are black hat hackers from Team BD Cyber Ninja. We wanted to give you a message.</p>
-            <p>Some script kiddies from your country are launching cyber attacks against Bangladesh and supporting Israel, and Muslims are being killed.</p>
-            <p><span class="bdcf-hl">WARNING:</span> If you do not stop these activities, we will be forced to launch cyber attacks. We never forget, We never forgive.</p>
+            const renderer = new THREE.WebGLRenderer({
+                canvas: document.getElementById('nexus-canvas'),
+                antialias: true,
+                alpha: false
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            // --- ENHANCED DYNAMIC PARTICLES ---
+            const particleCount = 6500; // Slightly increased density for better visuals
+            const particlesGeo = new THREE.BufferGeometry();
+            const posArray = new Float32Array(particleCount * 3);
+            const colorArray = new Float32Array(particleCount * 3);
             
-            <div class="bdcf-crdz">
-                <b>Crdz :</b> Captain X DarkRoot | Captain Zerox Uchiha | Frnss62 
-            </div>
-        </div>
-
-        <div class="bdcf-player">
-            <button id="bdcf-btn">▶ PLAY ANTHEM</button>
-            <input type="range" id="bdcf-vol" min="0" max="1" step="0.05" value="0.5">
-            <audio id="bdcf-audio" loop>
-                <source src="https://files.catbox.moe/c10ph5.m4a" type="audio/mpeg">
-            </audio>
-        </div>
-    </div>
-</div>
-
-<script>
-    (function() {
-        const audio = document.getElementById("bdcf-audio");
-        const btn = document.getElementById("bdcf-btn");
-        const vol = document.getElementById("bdcf-vol");
-        audio.volume = 0.5;
-        btn.onclick = function() {
-            if (audio.paused) {
-                audio.play();
-                btn.innerHTML = "⏸ PAUSE";
-                btn.style.background = "#fff";
-                btn.style.color = "#00ff00";
-            } else {
-                audio.pause();
-                btn.innerHTML = "▶ PLAY";
-                btn.style.background = "#00ff00";
-                btn.style.color = "#000";
+            for(let i = 0; i < particleCount; i++) {
+                const shape = Math.random();
+                let radius, theta, phi;
+                
+                if(shape < 0.4) {
+                    // Spiral arms
+                    const arm = Math.floor(Math.random() * 3);
+                    const t = Math.random() * Math.PI * 4;
+                    radius = 5 + t * 1.5;
+                    theta = t * 0.8 + arm * 2;
+                    phi = Math.sin(t) * 0.5;
+                } else if(shape < 0.7) {
+                    // Torus
+                    const R = 12;
+                    const r = 4;
+                    const u = Math.random() * Math.PI * 2;
+                    const v = Math.random() * Math.PI * 2;
+                    radius = R + r * Math.cos(v);
+                    theta = u;
+                    phi = Math.PI/2 + (r * Math.sin(v)) / R;
+                } else {
+                    // Halo
+                    radius = 15 + Math.random() * 10;
+                    theta = Math.random() * Math.PI * 2;
+                    phi = Math.acos((Math.random() * 2) - 1);
+                }
+                
+                posArray[i*3] = radius * Math.cos(theta) * Math.sin(phi);
+                posArray[i*3+1] = radius * Math.sin(theta) * Math.sin(phi) * 0.6;
+                posArray[i*3+2] = radius * Math.cos(phi);
+                
+                // --- NEW UNIQUE PREMIUM COLOR SCHEME ---
+                const rand = Math.random();
+                let color;
+                if(rand < 0.35) color = new THREE.Color(0x00f2fe);      // Neon Cyan
+                else if(rand < 0.65) color = new THREE.Color(0x9b51e0); // Electric Purple
+                else if(rand < 0.85) color = new THREE.Color(0x10b981); // Emerald Green
+                else color = new THREE.Color(0xf59e0b);                 // Cyber Gold
+                
+                colorArray[i*3] = color.r;
+                colorArray[i*3+1] = color.g;
+                colorArray[i*3+2] = color.b;
             }
-        };
-        vol.oninput = function() {
-            audio.volume = vol.value;
-        };
-    })();
-</script>
+            
+            particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            particlesGeo.setAttribute('color', new THREE.BufferAttribute(colorArray, 3));
 
+            // High glow particle texture
+            const canvas = document.createElement('canvas');
+            canvas.width = 32;
+            canvas.height = 32;
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = 'white';
+            ctx.beginPath();
+            ctx.arc(16, 16, 7, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.shadowColor = '#00f2fe';
+            ctx.shadowBlur = 12;
+            const particleTexture = new THREE.CanvasTexture(canvas);
+
+            const particlesMat = new THREE.PointsMaterial({
+                size: 0.20, // Slightly sharper
+                vertexColors: true,
+                map: particleTexture,
+                transparent: true,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false
+            });
+
+            const particleSystem = new THREE.Points(particlesGeo, particlesMat);
+            scene.add(particleSystem);
+
+            // --- DYNAMIC NETWORK LINES ---
+            const lineGroup = new THREE.Group();
+            for(let j = 0; j < 65; j++) {
+                const points = [];
+                const segments = 30;
+                const startAngle = Math.random() * Math.PI * 2;
+                
+                for(let i = 0; i <= segments; i++) {
+                    const t = i / segments;
+                    const angle = startAngle + t * Math.PI * 2;
+                    const r = 10 + Math.sin(t * Math.PI * 6) * 5;
+                    
+                    const x = Math.cos(angle) * r;
+                    const y = Math.sin(angle * 2) * 4 + Math.cos(t * Math.PI * 4) * 3;
+                    const z = Math.sin(angle) * r * 0.7;
+                    
+                    points.push(new THREE.Vector3(x, y, z));
+                }
+                
+                const lineGeo = new THREE.BufferGeometry().setFromPoints(points);
+                const lineMat = new THREE.LineBasicMaterial({ 
+                    color: Math.random() > 0.5 ? 0x00f2fe : 0x9b51e0, // Cyan & Purple Lines
+                    transparent: true,
+                    opacity: 0.08 // Slightly more visible for network look
+                });
+                const line = new THREE.Line(lineGeo, lineMat);
+                lineGroup.add(line);
+            }
+            scene.add(lineGroup);
+
+            // --- CENTRAL DATA CORE ---
+            const coreGeo = new THREE.IcosahedronGeometry(2.8, 2);
+            const coreMat = new THREE.MeshPhongMaterial({
+                color: 0x00f2fe,
+                emissive: 0x240046,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.25
+            });
+            const core = new THREE.Mesh(coreGeo, coreMat);
+            scene.add(core);
+
+            // Inner core glow
+            const innerCoreGeo = new THREE.SphereGeometry(1.5, 32);
+            const innerCoreMat = new THREE.MeshBasicMaterial({
+                color: 0x9b51e0, // Purple core inner glow
+                transparent: true,
+                opacity: 0.15
+            });
+            const innerCore = new THREE.Mesh(innerCoreGeo, innerCoreMat);
+            scene.add(innerCore);
+
+            // --- FLOATING BINARY SPRITES ---
+            const binaryGroup = new THREE.Group();
+            const binaryCount = 220;
+            for(let i = 0; i < binaryCount; i++) {
+                const canvas = document.createElement('canvas');
+                canvas.width = 64;
+                canvas.height = 64;
+                const ctx = canvas.getContext('2d');
+                ctx.fillStyle = Math.random() > 0.5 ? '#00f2fe' : '#9b51e0';
+                ctx.font = 'bold 34px monospace';
+                ctx.fillText(Math.random() > 0.5 ? '1' : '0', 15, 45);
+                
+                const texture = new THREE.CanvasTexture(canvas);
+                const material = new THREE.SpriteMaterial({ 
+                    map: texture, 
+                    transparent: true,
+                    opacity: 0.15,
+                    blending: THREE.AdditiveBlending
+                });
+                const sprite = new THREE.Sprite(material);
+                
+                const r = 9 + Math.random() * 8;
+                const theta = Math.random() * Math.PI * 2;
+                const phi = Math.acos((Math.random() * 2) - 1);
+                
+                sprite.position.x = r * Math.sin(phi) * Math.cos(theta);
+                sprite.position.y = r * Math.sin(phi) * Math.sin(theta) * 0.7;
+                sprite.position.z = r * Math.cos(phi);
+                
+                sprite.scale.set(1, 1, 1);
+                binaryGroup.add(sprite);
+            }
+            scene.add(binaryGroup);
+
+            // Lights
+            const light1 = new THREE.PointLight(0x00f2fe, 1.2, 40);
+            light1.position.set(5, 5, 10);
+            scene.add(light1);
+            
+            const light2 = new THREE.PointLight(0x9b51e0, 0.9, 40);
+            light2.position.set(-8, -3, 10);
+            scene.add(light2);
+            
+            const ambient = new THREE.AmbientLight(0x0a0a23);
+            scene.add(ambient);
+
+            // Mouse interaction
+            let mouseX = 0, mouseY = 0;
+            let targetX = 0, targetY = 0;
+            let mouseActiveAmount = 0.0;
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = (e.clientX / window.innerWidth - 0.5) * 12;
+                mouseY = -(e.clientY / window.innerHeight - 0.5) * 8;
+                mouseActiveAmount = 1.0;
+            });
+
+            document.addEventListener('touchmove', (e) => {
+                if (e.touches && e.touches[0]) {
+                    mouseX = (e.touches[0].clientX / window.innerWidth - 0.5) * 12;
+                    mouseY = -(e.touches[0].clientY / window.innerHeight - 0.5) * 8;
+                    mouseActiveAmount = 1.0;
+                }
+            }, { passive: true });
+
+            // Animation loop
+            let time = 0;
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                time += 0.002;
+
+                particleSystem.rotation.y += 0.0008;
+                particleSystem.rotation.x += Math.sin(time * 0.3) * 0.0003;
+                
+                lineGroup.rotation.y += 0.0006;
+                lineGroup.rotation.x += Math.sin(time * 0.2) * 0.0004;
+                
+                const scale = 1 + Math.sin(time * 3) * 0.1;
+                core.scale.set(scale, scale, scale);
+                innerCore.scale.set(scale * 0.8, scale * 0.8, scale * 0.8);
+                
+                binaryGroup.rotation.y += 0.0004;
+                binaryGroup.rotation.x += Math.sin(time * 0.5) * 0.0002;
+                
+                mouseActiveAmount += (0 - mouseActiveAmount) * 0.03;
+
+                const autoX = Math.sin(time * 0.6) * 6;
+                const autoY = Math.cos(time * 0.4) * 3;
+
+                targetX = (mouseX * mouseActiveAmount) + (autoX * (1 - mouseActiveAmount));
+                targetY = (mouseY * mouseActiveAmount) + (autoY * (1 - mouseActiveAmount));
+
+                camera.position.x += (targetX - camera.position.x) * 0.05;
+                camera.position.y += (targetY - camera.position.y) * 0.05;
+                camera.lookAt(0, 0, 0);
+
+                renderer.render(scene, camera);
+            }
+
+            animate();
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        })();
+    </script>
 </body>
 </html>
